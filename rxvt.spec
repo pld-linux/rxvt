@@ -74,7 +74,7 @@ LDFLAGS="-s -lutempter" ; export LDFLAGS
 	--enable-next-xcroll \
 	--enable-ttygid \
 	--with-term=xterm-color
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
