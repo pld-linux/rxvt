@@ -131,7 +131,10 @@ CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 	--disable-menubar \
 	--enable-next-xcroll \
 	--enable-ttygid \
-	--with-term=rxvt
+	--with-term=rxvt \
+	--enable-half-shadow \
+	--enable-smart-resize \
+	--enable-256-color 
 %{__make}
 
 %install
