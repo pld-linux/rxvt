@@ -152,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/menu/*
+%doc doc/menu/* ChangeLog
 %{_applnkdir}/Terminals/rxvt.desktop
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
