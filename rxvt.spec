@@ -5,16 +5,17 @@ Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
 Version:	2.7.5
-Release:	2
-Serial:		5
+Release:	11
+Epoch:		8
 License:	GPL
-Group:		X11/Utilities
-Group(pl):	X11/Narzêdzia
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Source0:	ftp://ftp.rxvt.org/pub/rxvt/devel/%{name}-%{version}.tar.bz2
-Source1:	rxvt.desktop
-Patch0:		rxvt-utempter.patch
-Patch1:		rxvt-utmp-configure.patch
-Patch2:		rxvt-DESTDIR.patch
+Source1:	%{name}.desktop
+Patch0:		%{name}-utempter.patch
+Patch1:		%{name}-utmp-configure.patch
+Patch2:		%{name}-DESTDIR.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,9 +72,9 @@ avantajlý olabilir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
-LDFLAGS="%{!?debug:-s} -lutempter" ; export LDFLAGS
 %configure \
 	--enable-shared \
 	--disable-static \
