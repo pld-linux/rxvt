@@ -1,24 +1,140 @@
---- rxvt-2.6.0/src/command.c~	Thu Jun  3 15:17:09 1999
-+++ rxvt-2.6.0/src/command.c	Wed Jun 23 12:57:04 1999
-@@ -182,9 +182,7 @@
+diff -ur rxvt-2.7.3.orig/src/Makefile.in rxvt-2.7.3/src/Makefile.in
+--- rxvt-2.7.3.orig/src/Makefile.in	Sat Feb 19 07:07:40 2000
++++ rxvt-2.7.3/src/Makefile.in	Fri May  5 04:01:08 2000
+@@ -18,11 +18,11 @@
+ first_rule: all
+ dummy:
  
- #ifdef UTMP_SUPPORT
+-SRCS =	command.c graphics.c grkelot.c init.c logging.c main.c menubar.c \
++SRCS =	command.c graphics.c grkelot.c init.c main.c menubar.c \
+ 	misc.c netdisp.c screen.c scrollbar.c strings.c xdefaults.c xpm.c
+ 
+ HDRS =	command.h grkelot.h init.h menubar.h protos.h rxvtgrx.h version.h \
+-	feature.h logging.h netdisp.h rxvt.h screen.h
++	feature.h netdisp.h rxvt.h screen.h
+ 
+ # it was ``be kind to gmake week''.  Now it's ``autoconf week''
+ #OBJS =	$(SRCS:S,.c,.o,)
+@@ -32,14 +32,14 @@
+ # it's ``be kind to gmake week''
+ #EXTPROS = $(SRCS:S,.c,.extpro,)
+ EXTPROS = command.extpro graphics.extpro grkelot.extpro init.extpro \
+-	logging.extpro main.extpro menubar.extpro misc.extpro netdisp.extpro \
++	main.extpro menubar.extpro misc.extpro netdisp.extpro \
+ 	screen.extpro scrollbar.extpro strings.extpro xdefaults.extpro \
+ 	xpm.extpro
+ 
+ # it's ``be kind to gmake week''
+ #INTPROS = $(SRCS:S,.c,.intpro,)
+ INTPROS = command.intpro graphics.intpro grkelot.intpro init.intpro \
+-	logging.intpro main.intpro menubar.intpro misc.intpro netdisp.intpro \
++	main.intpro menubar.intpro misc.intpro netdisp.intpro \
+ 	screen.intpro scrollbar.intpro strings.intpro xdefaults.intpro \
+ 	xpm.intpro
+ 
+@@ -124,71 +124,66 @@
+ # DO NOT DELETE: nice dependency list follows
+ command.o:   command.c   $(DEPS) command.h version.h			\
+ 	command.intpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ graphics.o:  graphics.c  $(DEPS)					\
+ 	command.extpro graphics.intpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ grkelot.o:   grkelot.c   $(DEPS) grkelot.h				\
+ 	command.extpro graphics.extpro grkelot.intpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ init.o:      init.c      $(DEPS) init.h					\
+ 	command.extpro graphics.extpro grkelot.extpro init.intpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
+-	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+-	xdefaults.extpro xpm.extpro
+-logging.o:   logging.c   $(DEPS) logging.h				\
+-	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.intpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ main.o:      main.c      $(DEPS) 					\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.intpro menubar.extpro misc.extpro		\
++	main.intpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ menubar.o:   menubar.c   $(DEPS) menubar.h version.h			\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.intpro misc.extpro		\
++	main.extpro menubar.intpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ misc.o:      misc.c      $(DEPS)					\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.intpro		\
++	main.extpro menubar.extpro misc.intpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ netdisp.o:   netdisp.c   $(DEPS) netdisp.h				\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.intpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ screen.o:    screen.c    $(DEPS) screen.h				\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.intpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ scrollbar.o: scrollbar.c $(DEPS)					\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.intpro strings.extpro	\
+ 	xdefaults.extpro xpm.extpro
+ strings.o:   strings.c   $(DEPS) 					\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.intpro	\
+ 	xdefaults.extpro xpm.extpro
+ xdefaults.o: xdefaults.c $(DEPS) version.h				\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.intpro xpm.extpro
+ xpm.o:       xpm.c       $(DEPS) 					\
+ 	command.extpro graphics.extpro grkelot.extpro init.extpro	\
+-	logging.extpro main.extpro menubar.extpro misc.extpro		\
++	main.extpro menubar.extpro misc.extpro		\
+ 	netdisp.extpro screen.extpro scrollbar.extpro strings.extpro	\
+ 	xdefaults.extpro xpm.intpro
+diff -ur rxvt-2.7.3.orig/src/main.c rxvt-2.7.3/src/main.c
+--- rxvt-2.7.3.orig/src/main.c	Sun Feb 27 05:57:52 2000
++++ rxvt-2.7.3/src/main.c	Fri May  5 04:00:09 2000
+@@ -236,15 +236,13 @@
+     if (ttydev == NULL || *ttydev == '\0')
+ 	return;
      if (!(Options & Opt_utmpInhibit)) {
 -	privileges(RESTORE);
--	cleanutent();
+ 	if (action == SAVE) {
+ 	    next_action = RESTORE;
+-	    makeutent(ttydev, rs.display_name);
++	    addToUtmp(ttydev, rs.display_name, cmd_fd);
+ 	} else if (action == RESTORE) {
+ 	    next_action = IGNORE;
+-	    cleanutent();
++	    removeFromUtmp();
+ 	}
 -	privileges(IGNORE);
-+	removeFromUtmp();
      }
- #endif
- 
-@@ -826,9 +824,7 @@
- 
- #ifdef UTMP_SUPPORT
-     if (!(Options & Opt_utmpInhibit)) {
--	privileges(RESTORE);
--	makeutent(ttydev, rs[Rs_display_name]);		/* stamp /etc/utmp */
--	privileges(IGNORE);
-+	addToUtmp(ttydev, rs[Rs_display_name], cmd_fd);
-     }
- #endif
  }
+ #endif
