@@ -4,21 +4,21 @@ Summary(fr):	rxvt - un emulateur de terminal pour X window
 Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
-Version:	2.6.0
+Version:	2.7.3
 Release:	1 
 Copyright:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.bz2
-Source1:	rxvt.wmconfig
+Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.gz
+Source1:	rxvt.desktop
 Patch:		rxvt-utempter.patch
 BuildRequires:	utempter-devel
 BuildRequires:	yodl
 BuildRequires:  xpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define _prefix /usr/X11R6
-%define _mandir /usr/X11R6/man
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 Rxvt is a VT100 terminal emulator for X. It is intended as a replacement
@@ -65,27 +65,24 @@ ortamlarda son derece avantajlý olabilir.
 %patch -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-lutempter" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix} \
-	--mandir=%{_mandir} \
-	--enable-utmp \
-	--enable-xpm-background \
-	--enable-transparency \
+LDFLAGS="-s -lutempter" ; export LDFLAGS
+%configure \
+	--enable-everything \
 	--enable-xgetdefault \
 	--disable-menubar \
 	--disable-backspace-key \
+	--enable-next-xcroll \
+	--enable-ttygid \
 	--with-term=xterm-color
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/lib/X11/app-defaults}
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
-make install prefix=$RPM_BUILD_ROOT%{_prefix} \
-	mandir=$RPM_BUILD_ROOT%{_mandir}/man1
+make DESTDIR=$RPM_BUILD_ROOT install
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/rxvt
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 gzip -9nf doc/* $RPM_BUILD_ROOT%{_mandir}/man1/* || :
 
@@ -95,6 +92,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/*
-%config(missingok) /etc/X11/wmconfig/rxvt
+%{_applnkdir}/Utilities/rxvt.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
