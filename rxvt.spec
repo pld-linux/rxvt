@@ -98,7 +98,7 @@ automake -a -c || :
 	--disable-menubar \
 	--enable-next-xcroll \
 	--enable-ttygid \
-	--with-term=xterm-color
+	--with-term=rxvt
 %{__make}
 
 %install
