@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc
 %config(missingok) /etc/X11/wmconfig/rxvt
 %attr(755, root, root) /usr/X11R6/bin/*
-%attr(644, root,  man) /usr/X11R6/man/man1/*
+/usr/X11R6/man/man1/*
 
 %changelog
 * Sun Sep 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
