@@ -119,7 +119,7 @@ CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 libtoolize --copy --force
 aclocal -I .
 autoheader
-autoconf
+%{__autoconf}
 automake -a -c || :
 %configure \
 	--enable-shared \
