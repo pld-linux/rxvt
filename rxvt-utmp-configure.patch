@@ -1,6 +1,6 @@
-diff -ur rxvt-2.7.3.orig/configure rxvt-2.7.3/configure
---- rxvt-2.7.3.orig/configure	Sun Mar 26 09:47:39 2000
-+++ rxvt-2.7.3/configure	Thu Jul 13 14:30:39 2000
+diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
+--- rxvt-2.7.3/configure	Sun Mar 26 09:47:39 2000
++++ rxvt-2.7.3-p/configure	Tue Jul 18 17:43:12 2000
 @@ -4160,43 +4160,7 @@
    if test "$cross_compiling" = yes; then
      echo "configure: warning: Define/undefine RXVT_UTMP_FILE in config.h manually" 1>&2
@@ -197,4 +197,52 @@ diff -ur rxvt-2.7.3.orig/configure rxvt-2.7.3/configure
  fi
  
  fi
-Only in rxvt-2.7.3: configure~
+@@ -4553,47 +4393,7 @@
+   if test "$cross_compiling" = yes; then
+     echo "configure: warning: Define/undefine RXVT_LASTLOG_FILE in config.h manually" 1>&2
+ else
+-  cat > conftest.$ac_ext <<EOF
+-#line 4558 "configure"
+-#include "confdefs.h"
+-#include <stdio.h>
+-#ifdef HAVE_UTMPX_H
+-#include <utmpx.h>
+-#elif defined(HAVE_UTMP_H)
+-#include <utmp.h>
+-#endif
+-#ifdef HAVE_LASTLOG_H
+-#include <lastlog.h>
+-#endif
+-#include <errno.h>
+-main()
+-{
+-    char **w, *lastloglist[] = {
+-#ifdef _PATH_LASTLOG
+-	_PATH_LASTLOG,
+-#endif
+-    "/var/log/lastlog", NULL };
+-    FILE *a, *f=fopen("conftestval", "w");
+-    if (!f) exit(1);
+-    for (w = lastloglist; *w; w++) {
+-	if ((a = fopen(*w, "r")) != NULL || errno == EACCES) {
+-	    fprintf(f, "%s\n", *w);
+-	    exit(0);
+-	}
+-    }
+-    exit(0);
+-}
+-EOF
+-if { (eval echo configure:4588: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-then
+-  rxvt_cv_path_lastlog=`cat conftestval`
+-else
+-  echo "configure: failed program was:" >&5
+-  cat conftest.$ac_ext >&5
+-  rm -fr conftest*
+-  rxvt_cv_path_lastlog=
+-fi
+-rm -fr conftest*
++  rxvt_cv_path_lastlog=/var/log/lastlog
+ fi
+ 
+ fi
