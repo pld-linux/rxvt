@@ -5,7 +5,7 @@ Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
 Version:	2.7.5
-Release:	1
+Release:	2
 Serial:		5
 License:	GPL
 Group:		X11/Utilities
