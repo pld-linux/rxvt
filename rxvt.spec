@@ -9,8 +9,6 @@ Release:	4
 Epoch:		13
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(pl):	X11/Aplikacje
 Source0:	http://prdownloads.sourceforge.net/rxvt/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-utmp98.patch
