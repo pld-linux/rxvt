@@ -12,8 +12,8 @@ Group(pl):	X11/Narzêdzia
 Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.bz2
 Source1:	rxvt.wmconfig
 Patch:		rxvt-utempter.patch
-#Patch:		rxvt-config.patch
 BuildPrereq:	utempter-devel
+BuildPrereq:	yodl
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix /usr/X11R6
@@ -62,7 +62,6 @@ ortamlarda son derece avantajlý olabilir.
 %prep
 %setup -q
 %patch -p1
-#%patch -p1 -b .config
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-lutempter" \
@@ -82,7 +81,7 @@ make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/rxvt
 
-gzip -9nf doc/* $RPM_BUILD_ROOT%{_mandir}/man1/*
+gzip -9nf doc/* $RPM_BUILD_ROOT%{_mandir}/man1/* || :
 
 %clean
 rm -rf $RPM_BUILD_ROOT
