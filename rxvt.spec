@@ -5,7 +5,7 @@ Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
 Version:	2.7.6
-Release:	4
+Release:	5
 Epoch:		13
 License:	GPL
 Group:		X11/Applications
@@ -90,14 +90,14 @@ autoheader
 autoconf
 automake -a -c || :
 %configure \
-	--disable-shared \
-	--enable-static \
+	--enable-shared \
+	--disable-static \
 	--enable-everything \
 	--enable-xgetdefault \
 	--disable-menubar \
 	--enable-next-xcroll \
 	--enable-ttygid \
-	--with-term=rxvt
+	--with-term=xterm-color
 %{__make}
 
 %install
@@ -115,10 +115,14 @@ gzip -9nf doc/menu/*
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %doc doc/menu/*
 %{_applnkdir}/Terminals/rxvt.desktop
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
+%attr(755,root,root) %{_libdir}/librxvt.so.*.*.*
 %{_mandir}/man1/*
