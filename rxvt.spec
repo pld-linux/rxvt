@@ -9,12 +9,12 @@ Summary(tr):	X11 iГin bir uГbirim yazЩlЩmЩ
 Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
 Summary(zh_CN):	rxvt - м╪пн╢╟©зоб╣ддёдБжу╤к
 Name:		rxvt
-Version:	2.7.8
-Release:	6
-Epoch:		18
+Version:	2.7.10
+Release:	1
+Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/rxvt/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/rxvt/%{name}-%{version}.tar.bz2
 Source1:	%{name}.desktop
 Patch0:		%{name}-utmp98.patch
 Patch1:		%{name}-utmp98-2.patch
@@ -114,7 +114,7 @@ xterm. rxvt, зокрема, не реал╕зу╓ емуляц╕ю Tektronix 4014,
 %patch3 -p1
 
 %build
-mv -f autoconf/{acconfig.h,configure.in,xpm.m4} .
+mv -f autoconf/{configure.in,xpm.m4} .
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 %{__libtoolize}
 %{__aclocal} -I .
