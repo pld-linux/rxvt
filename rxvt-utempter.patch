@@ -1,0 +1,24 @@
+--- rxvt-2.6.0/src/command.c~	Thu Jun  3 15:17:09 1999
++++ rxvt-2.6.0/src/command.c	Wed Jun 23 12:57:04 1999
+@@ -182,9 +182,7 @@
+ 
+ #ifdef UTMP_SUPPORT
+     if (!(Options & Opt_utmpInhibit)) {
+-	privileges(RESTORE);
+-	cleanutent();
+-	privileges(IGNORE);
++	removeFromUtmp();
+     }
+ #endif
+ 
+@@ -826,9 +824,7 @@
+ 
+ #ifdef UTMP_SUPPORT
+     if (!(Options & Opt_utmpInhibit)) {
+-	privileges(RESTORE);
+-	makeutent(ttydev, rs[Rs_display_name]);		/* stamp /etc/utmp */
+-	privileges(IGNORE);
++	addToUtmp(ttydev, rs[Rs_display_name], cmd_fd);
+     }
+ #endif
+ }
