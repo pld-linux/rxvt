@@ -60,7 +60,7 @@ ortamlarda son derece avantajlý olabilir.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=/usr/X11R6 \
 	--enable-utmp \
 	--enable-wtmp \
