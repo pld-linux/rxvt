@@ -100,5 +100,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/menu/*
 %{_applnkdir}/Utilities/rxvt.desktop
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/rxvt
+%attr(755,root,root) %{_bindir}/rclock
 %{_mandir}/man1/*
