@@ -59,8 +59,12 @@ ortamlarda son derece avantajlý olabilir.
 %patch -p1 -b .config
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr/X11R6 \
-	--enable-utmp --enable-wtmp --enable-xpm-background 
+CFLAGS="$RPM_OPT_FLAGS" \
+./configure %{_target} \
+	--prefix=/usr/X11R6 \
+	--enable-utmp \
+	--enable-wtmp \
+	--enable-xpm-background 
 make
 
 %install
