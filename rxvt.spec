@@ -10,7 +10,7 @@ Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
 Summary(zh_CN):	rxvt - м╪пн╢╟©зоб╣ддёдБжу╤к
 Name:		rxvt
 Version:	2.7.10
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -155,7 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/menu/* ChangeLog
+%doc doc/menu/* doc/*.html ChangeLog
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
 %attr(755,root,root) %{_libdir}/librxvt.so.*.*.*
