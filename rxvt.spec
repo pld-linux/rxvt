@@ -116,7 +116,7 @@ xterm. rxvt, зокрема, не реал╕зу╓ емуляц╕ю Tektronix 4014,
 %build
 mv -f autoconf/{acconfig.h,configure.in,xpm.m4} .
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
-libtoolize --copy --force
+%{__libtoolize}
 aclocal -I .
 autoheader
 %{__autoconf}
