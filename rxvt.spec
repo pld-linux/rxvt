@@ -12,8 +12,8 @@ Group(pl):	X11/Narzêdzia
 Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.bz2
 Source1:	rxvt.wmconfig
 Patch:		rxvt-utempter.patch
-BuildPrereq:	utempter-devel
-BuildPrereq:	yodl
+BuildRequires:	utempter-devel
+BuildRequires:	yodl
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix /usr/X11R6
