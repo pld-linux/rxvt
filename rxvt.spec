@@ -97,22 +97,3 @@ rm -rf $RPM_BUILD_ROOT
 %config(missingok) /etc/X11/wmconfig/rxvt
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-
-%changelog
-* Sun Jun  6 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [2.4.7-2]
-- changes for common l&f
-- added Group(pl)
-- added gzipping documentation
-- added using macros
-
-* Sun Sep 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.4.7-1]
-- based on RH spec
-- added -q %setup parameter,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-  subpackage,
-- rxvt is now builded from bziped tar source,
-- added pl translation,
-- spec rewrited for allow building from non-root account.
