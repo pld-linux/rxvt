@@ -18,6 +18,7 @@ Patch1:		%{name}-utmp98-2.patch
 Patch2:		%{name}-command-overflow.patch
 Patch3:		%{name}-xim.patch
 Patch4:		%{name}-ac_fix.patch
+Patch5:		%{name}-utmpx.patch
 URL:		http://www.rxvt.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
@@ -80,6 +81,7 @@ avantajlý olabilir.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
