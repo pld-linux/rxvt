@@ -2,7 +2,9 @@ Summary:	rxvt - terminal emulator in an X window
 Summary(de):	rxvt - Terminal-Emulator in einem X-Fenster
 Summary(fr):	rxvt - un emulateur de terminal pour X window
 Summary(pl):	Emulator terminala pod X11
+Summary(ru):	rxvt - эмулятор терминала VT102 для X Window System
 Summary(tr):	X11 iГin bir uГbirim yazЩlЩmЩ
+Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
 Name:		rxvt
 Version:	2.7.6
 Release:	5
@@ -64,6 +66,14 @@ mo©liwo╤ci konfiguracyjnye na poziomie X toolkit. Rezygnacja z tych
 mo©liwo╤ci zaowocowaЁa tym, ©e rxvt potrzebuje o wiele mniej pamiЙci
 do uruchomienia.
 
+%description -l ru
+rxvt - эмулятор терминала VT100 для X window. Он разрабатывался как
+замена для xterm(1) для пользователей, которым не требуется все
+возможности xterm. rxvt, в частности, не реализует эмуляцию Tektronix
+4014, протоколирование сессий и конфигурируемость в стиле тулкита. В
+результате rxvt использует намного меньше своп-памяти чем xterm -
+значительное преимущество для машин, обрабатывающих много X-сессий.
+
 %description -l tr
 rxvt, X11 iГin vt100 terminalini destekleyen bir yazЩlЩmdЩr. AsЩl
 geliЧtirilme amacЩ xterm'in bazЩ detaylЩ Жzelliklerine gerek duymayan
@@ -71,6 +81,14 @@ kiЧiler iГin daha az kaynak harcayan bir alternatif yaratmaktЩ.
 Textronik 4014 ЖykЭnЭmЭ gibi xterm'e ait egzotik Жzellikleri
 gerektirmeyen ve birГok pencerenin aГЩldЩПЩ ortamlarda son derece
 avantajlЩ olabilir.
+
+%description -l uk
+rxvt - емулятор терм╕налу VT100 для X window. В╕н був розроблений як
+зам╕на для xterm(1) для користувач╕в, яким не потр╕бн╕ вс╕ можливост╕
+xterm. rxvt, зокрема, не реал╕зу╓ емуляц╕ю Tektronix 4014,
+протоколювання сес╕й та конф╕гурован╕сть в стил╕ Xtoolkit. Як
+результат rxvt потребу╓ набагато менше пам'ят╕ н╕ж xterm - значна
+перевага для машин, що обробляють багато X-сес╕й.
 
 %prep
 %setup -q
