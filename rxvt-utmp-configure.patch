@@ -1,14 +1,15 @@
-diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
---- rxvt-2.7.3/configure	Sun Mar 26 09:47:39 2000
-+++ rxvt-2.7.3-p/configure	Tue Jul 18 17:43:12 2000
-@@ -4160,43 +4160,7 @@
+diff -ur rxvt-2.7.5.orig/configure rxvt-2.7.5/configure
+--- rxvt-2.7.5.orig/configure	Tue Sep 19 08:57:09 2000
++++ rxvt-2.7.5/configure	Thu Dec  7 22:21:05 2000
+@@ -4923,44 +4923,7 @@
    if test "$cross_compiling" = yes; then
      echo "configure: warning: Define/undefine RXVT_UTMP_FILE in config.h manually" 1>&2
  else
 -  cat > conftest.$ac_ext <<EOF
--#line 4165 "configure"
+-#line 4928 "configure"
 -#include "confdefs.h"
 -#include <stdio.h>
+-#include <sys/types.h>
 -#include <utmp.h>
 -#include <errno.h>
 -main()
@@ -32,7 +33,7 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
 -    exit(0);
 -}
 -EOF
--if { (eval echo configure:4191: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-if { (eval echo configure:4955: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 -then
 -  rxvt_cv_path_utmp=`cat conftestval`
 -else
@@ -46,14 +47,15 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
  fi
  
  fi
-@@ -4321,52 +4285,7 @@
+@@ -5085,53 +5048,7 @@
    if test "$cross_compiling" = yes; then
      echo "configure: warning: Define/undefine RXVT_UTMPX_FILE in config.h manually" 1>&2
  else
 -  cat > conftest.$ac_ext <<EOF
--#line 4326 "configure"
+-#line 5090 "configure"
 -#include "confdefs.h"
 -#include <stdio.h>
+-#include <sys/types.h>
 -#include <utmpx.h>
 -#include <errno.h>
 -#include <sys/stat.h>
@@ -86,7 +88,7 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
 -    exit(0);
 -}
 -EOF
--if { (eval echo configure:4361: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-if { (eval echo configure:5126: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 -then
 -  rxvt_cv_path_utmpx=`cat conftestval`
 -else
@@ -100,14 +102,15 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
  fi
  
  fi
-@@ -4393,51 +4312,7 @@
+@@ -5158,52 +5075,7 @@
    if test "$cross_compiling" = yes; then
      echo "configure: warning: Define/undefine RXVT_WTMP_FILE in config.h manually" 1>&2
  else
 -  cat > conftest.$ac_ext <<EOF
--#line 4398 "configure"
+-#line 5163 "configure"
 -#include "confdefs.h"
 -#include <stdio.h>
+-#include <sys/types.h>
 -#ifdef HAVE_UTMPX_H
 -#include <utmpx.h>
 -#endif
@@ -139,7 +142,7 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
 -    exit(0);
 -}
 -EOF
--if { (eval echo configure:4432: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-if { (eval echo configure:5198: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 -then
 -  rxvt_cv_path_wtmp=`cat conftestval`
 -else
@@ -153,12 +156,12 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
  fi
  
  fi
-@@ -4458,42 +4333,7 @@
+@@ -5224,42 +5096,7 @@
    if test "$cross_compiling" = yes; then
      echo "configure: warning: Define/undefine RXVT_WTMPX_FILE in config.h manually" 1>&2
  else
 -  cat > conftest.$ac_ext <<EOF
--#line 4463 "configure"
+-#line 5229 "configure"
 -#include "confdefs.h"
 -#include <stdio.h>
 -#ifdef HAVE_UTMPX_H
@@ -183,7 +186,7 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
 -    exit(0);
 -}
 -EOF
--if { (eval echo configure:4488: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-if { (eval echo configure:5254: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 -then
 -  rxvt_cv_path_wtmpx=`cat conftestval`
 -else
@@ -197,14 +200,15 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
  fi
  
  fi
-@@ -4553,47 +4393,7 @@
+@@ -5319,48 +5156,7 @@
    if test "$cross_compiling" = yes; then
      echo "configure: warning: Define/undefine RXVT_LASTLOG_FILE in config.h manually" 1>&2
  else
 -  cat > conftest.$ac_ext <<EOF
--#line 4558 "configure"
+-#line 5324 "configure"
 -#include "confdefs.h"
 -#include <stdio.h>
+-#include <sys/types.h>
 -#ifdef HAVE_UTMPX_H
 -#include <utmpx.h>
 -#elif defined(HAVE_UTMP_H)
@@ -232,7 +236,7 @@ diff -Naur rxvt-2.7.3/configure rxvt-2.7.3-p/configure
 -    exit(0);
 -}
 -EOF
--if { (eval echo configure:4588: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-if { (eval echo configure:5355: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 -then
 -  rxvt_cv_path_lastlog=`cat conftestval`
 -else

@@ -4,16 +4,17 @@ Summary(fr):	rxvt - un emulateur de terminal pour X window
 Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
-Version:	2.7.3
-Release:	5
+Version:	2.7.5
+Release:	1
 Serial:		5
 License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source0:	ftp://ftp.rxvt.org/pub/rxvt/devel/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.rxvt.org/pub/rxvt/devel/%{name}-%{version}.tar.bz2
 Source1:	rxvt.desktop
 Patch0:		rxvt-utempter.patch
 Patch1:		rxvt-utmp-configure.patch
+Patch2:		rxvt-DESTDIR.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
 BuildRequires:	yodl
@@ -70,10 +71,12 @@ avantajlý olabilir.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 LDFLAGS="-s -lutempter" ; export LDFLAGS
 %configure \
+	--enable-shared \
 	--enable-everything \
 	--enable-xgetdefault \
 	--disable-menubar \
@@ -85,6 +88,7 @@ LDFLAGS="-s -lutempter" ; export LDFLAGS
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install -d $RPM_BUILD_ROOT%{_libdir}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
@@ -95,10 +99,14 @@ gzip -9nf doc/menu/* $RPM_BUILD_ROOT%{_mandir}/man1/*
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %doc doc/menu/*
 %{_applnkdir}/Utilities/rxvt.desktop
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
+%attr(755,root,root) %{_libdir}/librxvt.so.*.*.*
 %{_mandir}/man1/*
