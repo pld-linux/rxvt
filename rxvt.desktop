@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=RXVT
 Comment=Small, fast X terminal application
-Exec=rxvt &
+Exec=rxvt
 Icon=gnome-term.png
 Terminal=0
 Type=Application
