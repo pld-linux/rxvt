@@ -2,7 +2,7 @@ Summary:	rxvt - terminal emulator in an X window
 Summary(de):	rxvt - Terminal-Emulator in einem X-Fenster
 Summary(es):	Emulador de terminal en X window - rxvt
 Summary(fr):	rxvt - un emulateur de terminal pour X window
-Summary(pl):	Emulator terminala pod X11
+Summary(pl):	Emulator terminala dla X Window
 Summary(pt_BR):	Emulador de terminal no X window - rxvt
 Summary(ru):	rxvt - эмулятор терминала VT102 для X Window System
 Summary(tr):	X11 iГin bir uГbirim yazЩlЩmЩ
