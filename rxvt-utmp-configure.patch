@@ -1,0 +1,200 @@
+diff -ur rxvt-2.7.3.orig/configure rxvt-2.7.3/configure
+--- rxvt-2.7.3.orig/configure	Sun Mar 26 09:47:39 2000
++++ rxvt-2.7.3/configure	Thu Jul 13 14:30:39 2000
+@@ -4160,43 +4160,7 @@
+   if test "$cross_compiling" = yes; then
+     echo "configure: warning: Define/undefine RXVT_UTMP_FILE in config.h manually" 1>&2
+ else
+-  cat > conftest.$ac_ext <<EOF
+-#line 4165 "configure"
+-#include "confdefs.h"
+-#include <stdio.h>
+-#include <utmp.h>
+-#include <errno.h>
+-main()
+-{
+-    char **u, *utmplist[] = {
+-#ifdef UTMP_FILE
+-	UTMP_FILE,
+-#endif
+-#ifdef _PATH_UTMP
+-	_PATH_UTMP,
+-#endif
+-    "/var/run/utmp", "/var/adm/utmp", "/etc/utmp", "/usr/etc/utmp", "/usr/adm/utmp", NULL };
+-    FILE *a, *f=fopen("conftestval", "w");
+-    if (!f) exit(1);
+-    for (u = utmplist; *u; u++) {
+-	if ((a = fopen(*u, "r")) != NULL || errno == EACCES) {
+-	    fprintf(f, "%s\n", *u);
+-	    exit(0);
+-	}
+-    }
+-    exit(0);
+-}
+-EOF
+-if { (eval echo configure:4191: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-then
+-  rxvt_cv_path_utmp=`cat conftestval`
+-else
+-  echo "configure: failed program was:" >&5
+-  cat conftest.$ac_ext >&5
+-  rm -fr conftest*
+-  rxvt_cv_path_utmp=
+-fi
+-rm -fr conftest*
++  rxvt_cv_path_utmp=/var/run/utmp
+ fi
+ 
+ fi
+@@ -4321,52 +4285,7 @@
+   if test "$cross_compiling" = yes; then
+     echo "configure: warning: Define/undefine RXVT_UTMPX_FILE in config.h manually" 1>&2
+ else
+-  cat > conftest.$ac_ext <<EOF
+-#line 4326 "configure"
+-#include "confdefs.h"
+-#include <stdio.h>
+-#include <utmpx.h>
+-#include <errno.h>
+-#include <sys/stat.h>
+-#ifdef HAVE_STRING_H
+-#include <string.h>
+-#endif
+-main()
+-{
+-    char **u, *p, *utmplist[] = {
+-#ifdef UTMPX_FILE
+-	UTMPX_FILE,
+-#endif
+-    "/var/adm/utmpx", "/etc/utmpx", NULL };
+-    FILE *a, *f=fopen("conftestval", "w");
+-    struct stat statu, statux;
+-    if (!f) exit(1);
+-    for (u = utmplist; *u; u++) {
+-	if ((a = fopen(*u, "r")) != NULL || errno == EACCES) {
+-	    if (stat(*u, &statux) < 0)
+-		continue;
+-	    p = strdup(*u);
+-	    p[strlen(p) - 1] = '\0';
+-	    if (stat(p, &statu) >= 0
+-		&& (statu.st_mtime - statux.st_mtime > 3600))
+-		continue;
+-	    fprintf(f, "%s\n", *u);
+-	    exit(0);
+-	}
+-    }
+-    exit(0);
+-}
+-EOF
+-if { (eval echo configure:4361: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-then
+-  rxvt_cv_path_utmpx=`cat conftestval`
+-else
+-  echo "configure: failed program was:" >&5
+-  cat conftest.$ac_ext >&5
+-  rm -fr conftest*
+-  rxvt_cv_path_utmpx=
+-fi
+-rm -fr conftest*
++  rxvt_cv_path_utmpx=/var/run/utmpx
+ fi
+ 
+ fi
+@@ -4393,51 +4312,7 @@
+   if test "$cross_compiling" = yes; then
+     echo "configure: warning: Define/undefine RXVT_WTMP_FILE in config.h manually" 1>&2
+ else
+-  cat > conftest.$ac_ext <<EOF
+-#line 4398 "configure"
+-#include "confdefs.h"
+-#include <stdio.h>
+-#ifdef HAVE_UTMPX_H
+-#include <utmpx.h>
+-#endif
+-#ifdef HAVE_UTMP_H
+-#include <utmp.h>
+-#endif
+-#include <errno.h>
+-main()
+-{
+-    char **w, *wtmplist[] = {
+-#ifdef WTMPX_FILE
+-	WTMPX_FILE,
+-#endif
+-#ifdef WTMP_FILE
+-	WTMP_FILE,
+-#endif
+-#ifdef _PATH_WTMP
+-	_PATH_WTMP,
+-#endif
+-    "/var/log/wtmp", "/var/adm/wtmp", "/etc/wtmp", "/usr/etc/wtmp", "/usr/adm/wtmp", NULL }; 
+-    FILE *a, *f=fopen("conftestval", "w");
+-    if (!f) exit(1);
+-    for (w = wtmplist; *w; w++) {
+-	if ((a = fopen(*w, "r")) != NULL || errno == EACCES) {
+-	    fprintf(f, "%s\n", *w);
+-	    exit(0);
+-	}
+-    }
+-    exit(0);
+-}
+-EOF
+-if { (eval echo configure:4432: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-then
+-  rxvt_cv_path_wtmp=`cat conftestval`
+-else
+-  echo "configure: failed program was:" >&5
+-  cat conftest.$ac_ext >&5
+-  rm -fr conftest*
+-  rxvt_cv_path_wtmp=
+-fi
+-rm -fr conftest*
++  rxvt_cv_path_wtmp=/var/log/wtmp
+ fi
+ 
+ fi
+@@ -4458,42 +4333,7 @@
+   if test "$cross_compiling" = yes; then
+     echo "configure: warning: Define/undefine RXVT_WTMPX_FILE in config.h manually" 1>&2
+ else
+-  cat > conftest.$ac_ext <<EOF
+-#line 4463 "configure"
+-#include "confdefs.h"
+-#include <stdio.h>
+-#ifdef HAVE_UTMPX_H
+-#include <utmpx.h>
+-#endif
+-#include <errno.h>
+-main()
+-{
+-    char **w, *wtmplist[] = {
+-#ifdef WTMPX_FILE
+-	WTMPX_FILE,
+-#endif
+-    "/var/log/wtmpx", "/var/adm/wtmpx", NULL }; 
+-    FILE *a, *f=fopen("conftestval", "w");
+-    if (!f) exit(1);
+-    for (w = wtmplist; *w; w++) {
+-	if ((a = fopen(*w, "r")) != NULL || errno == EACCES) {
+-	    fprintf(f, "%s\n", *w);
+-	    exit(0);
+-	}
+-    }
+-    exit(0);
+-}
+-EOF
+-if { (eval echo configure:4488: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+-then
+-  rxvt_cv_path_wtmpx=`cat conftestval`
+-else
+-  echo "configure: failed program was:" >&5
+-  cat conftest.$ac_ext >&5
+-  rm -fr conftest*
+-  rxvt_cv_path_wtmpx=
+-fi
+-rm -fr conftest*
++  rxvt_cv_path_wtmpx=/var/log/wtmpx
+ fi
+ 
+ fi
+Only in rxvt-2.7.3: configure~
