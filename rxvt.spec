@@ -21,6 +21,9 @@ Patch4:		%{name}-ac_fix.patch
 URL:		http://www.rxvt.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -81,7 +84,7 @@ avantajlý olabilir.
 %build
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 libtoolize --copy --force
-mv autoconf/config.h.in .
+mv -f autoconf/config.h.in .
 aclocal -I .
 autoconf
 automake -a -c || :
