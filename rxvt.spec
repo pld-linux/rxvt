@@ -4,19 +4,20 @@ Summary(fr):	rxvt - un emulateur de terminal pour X window
 Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
-Version:	2.7.5
-Release:	11
-Epoch:		8
+Version:	2.7.6
+Release:	3
+Epoch:		13
 License:	GPL
 Group:		X11/Applications
 Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
-Source0:	ftp://ftp.rxvt.org/pub/rxvt/devel/%{name}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/rxvt/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Patch0:		%{name}-utempter.patch
-Patch1:		%{name}-utmp-configure.patch
-Patch2:		%{name}-DESTDIR.patch
-Patch3:		%{name}-scroll.patch
+Patch0:		%{name}-utmp98.patch
+Patch1:		%{name}-utmp98-2.patch
+Patch2:		%{name}-command-overflow.patch
+PAtch3:		%{name}-xim.patch
+URL:		http://www.rxvt.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -76,9 +77,10 @@ avantajlý olabilir.
 %patch3 -p1
 
 %build
+CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 %configure \
-	--enable-shared \
-	--disable-static \
+	--disable-shared \
+	--enable-static \
 	--enable-everything \
 	--enable-xgetdefault \
 	--disable-menubar \
@@ -97,13 +99,10 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities \
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
-gzip -9nf doc/menu/* $RPM_BUILD_ROOT%{_mandir}/man1/*
+gzip -9nf doc/menu/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -111,5 +110,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_applnkdir}/Utilities/rxvt.desktop
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
-%attr(755,root,root) %{_libdir}/librxvt.so.*.*.*
 %{_mandir}/man1/*
