@@ -7,7 +7,7 @@ Summary(tr):	X11 iГin bir uГbirim yazЩlЩmЩ
 Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
 Name:		rxvt
 Version:	2.7.6
-Release:	5
+Release:	6
 Epoch:		13
 License:	GPL
 Group:		X11/Applications
@@ -115,7 +115,7 @@ automake -a -c || :
 	--disable-menubar \
 	--enable-next-xcroll \
 	--enable-ttygid \
-	--with-term=xterm-color
+	--with-term=rxvt
 %{__make}
 
 %install
