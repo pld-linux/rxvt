@@ -7,9 +7,10 @@ Summary(pt_BR): Emulador de terminal no X window - rxvt
 Summary(ru):	rxvt - эмулятор терминала VT102 для X Window System
 Summary(tr):	X11 iГin bir uГbirim yazЩlЩmЩ
 Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
+Summary(zh_CN):	rxvt - м╪пн╢╟©зоб╣ддёдБжу╤к
 Name:		rxvt
 Version:	2.7.8
-Release:	5
+Release:	6
 Epoch:		18
 License:	GPL
 Group:		X11/Applications
@@ -126,6 +127,7 @@ CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 	--disable-static \
 	--enable-everything \
 	--enable-xgetdefault \
+	--enable-mousewheel \
 	--disable-menubar \
 	--enable-next-xcroll \
 	--enable-ttygid \
