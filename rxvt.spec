@@ -5,14 +5,15 @@ Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
 Version:	2.7.3
-Release:	3
+Release:	4
 Serial:		5
 License:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
-Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.rxvt.org/pub/rxvt/devel/%{name}-%{version}.tar.gz
 Source1:	rxvt.desktop
 Patch0:		rxvt-utempter.patch
+Patch1:		rxvt-utmp-configure.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
 BuildRequires:	yodl
@@ -68,7 +69,8 @@ avantajlý olabilir.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 LDFLAGS="-s -lutempter" ; export LDFLAGS
@@ -76,7 +78,6 @@ LDFLAGS="-s -lutempter" ; export LDFLAGS
 	--enable-everything \
 	--enable-xgetdefault \
 	--disable-menubar \
-	--disable-backspace-key \
 	--enable-next-xcroll \
 	--enable-ttygid \
 	--with-term=xterm-color
