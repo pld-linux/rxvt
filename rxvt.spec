@@ -129,7 +129,7 @@ CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 	--enable-xgetdefault \
 	--enable-mousewheel \
 	--disable-menubar \
-	--enable-next-xcroll \
+	--enable-next-scroll \
 	--enable-ttygid \
 	--with-term=rxvt \
 	--enable-half-shadow \
