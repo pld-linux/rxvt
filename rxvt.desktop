@@ -2,7 +2,7 @@
 Name=Rxvt
 Comment=Small, fast X11 terminal application
 Comment[pl]=Mała, ale szybka aplikacja terminala pod X11
-Comment[sv]=litet och snabbt X-terminalprogram
+Comment[sv]=Litet och snabbt X-terminalprogram
 Exec=rxvt
 Icon=gnome-term.png
 Terminal=0
