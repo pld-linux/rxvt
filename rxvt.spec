@@ -14,6 +14,7 @@ Source1:	rxvt.wmconfig
 Patch:		rxvt-utempter.patch
 BuildRequires:	utempter-devel
 BuildRequires:	yodl
+BuildRequires:  xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix /usr/X11R6
