@@ -78,10 +78,10 @@ install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/rxvt
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc doc
 %config(missingok) /etc/X11/wmconfig/rxvt
-%attr(755, root, root) /usr/X11R6/bin/*
+%attr(755,root,root) /usr/X11R6/bin/*
 /usr/X11R6/man/man1/*
 
 %changelog
