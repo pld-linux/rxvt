@@ -27,6 +27,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	utempter-devel
+Requires:	terminfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -134,7 +135,7 @@ mv -f autoconf/{configure.in,xpm.m4} .
 	--with-term=rxvt \
 	--enable-half-shadow \
 	--enable-smart-resize \
-	--enable-256-color 
+	--enable-256-color
 %{__make}
 
 %install
