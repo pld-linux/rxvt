@@ -14,7 +14,7 @@ Release:	6
 Epoch:		18
 License:	GPL
 Group:		X11/Applications
-Source0:	http://prdownloads.sourceforge.net/rxvt/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/rxvt/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-utmp98.patch
 Patch1:		%{name}-utmp98-2.patch
@@ -22,12 +22,11 @@ Patch2:		%{name}-xim.patch
 Patch3:		%{name}-utmpx.patch
 URL:		http://www.rxvt.org/
 BuildRequires:	XFree86-devel
-BuildRequires:	utempter-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Rxvt is a VT100 terminal emulator for X. It is intended as a
