@@ -117,10 +117,10 @@ xterm. rxvt, зокрема, не реал╕зу╓ емуляц╕ю Tektronix 4014,
 mv -f autoconf/{acconfig.h,configure.in,xpm.m4} .
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 %{__libtoolize}
-aclocal -I .
-autoheader
+%{__aclocal} -I .
+%{__autoheader}
 %{__autoconf}
-automake -a -c || :
+%{__automake} || :
 %configure \
 	--enable-shared \
 	--disable-static \
