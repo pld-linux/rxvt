@@ -5,13 +5,14 @@ Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
 Version:	2.7.3
-Release:	1 
+Release:	2
 Copyright:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
 Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.gz
 Source1:	rxvt.desktop
 Patch:		rxvt-utempter.patch
+BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
 BuildRequires:	yodl
 BuildRequires:  xpm-devel
@@ -84,7 +85,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
-gzip -9nf doc/* $RPM_BUILD_ROOT%{_mandir}/man1/* || :
+gzip -9nf doc{,/etc,/menu,/yodl}/* $RPM_BUILD_ROOT%{_mandir}/man1/* || :
 
 %clean
 rm -rf $RPM_BUILD_ROOT
