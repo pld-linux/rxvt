@@ -17,7 +17,6 @@ Patch1:		rxvt-utmp-configure.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
 BuildRequires:	yodl
-BuildRequires:	xpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
