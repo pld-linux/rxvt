@@ -1,18 +1,20 @@
-Summary:     rxvt - terminal emulator in an X window
-Summary(de): rxvt - Terminal-Emulator in einem X-Fenster
-Summary(fr): rxvt - un emulateur de terminal pour X window
-Summary(pl): Emulator terminala pod X11
-Summary(tr): X11 için bir uçbirim yazýlýmý
-Name:        rxvt
-Serial:      2
-Version:     2.4.7
-Release:     1
-Copyright:   GPL
-Group:       X11/Utilities
-Source:      ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.bz2
-Source1:     rxvt.wmconfig
-Patch0:      rxvt-config.patch
+Summary:	rxvt - terminal emulator in an X window
+Summary(de):	rxvt - Terminal-Emulator in einem X-Fenster
+Summary(fr):	rxvt - un emulateur de terminal pour X window
+Summary(pl):	Emulator terminala pod X11
+Summary(tr):	X11 için bir uçbirim yazýlýmý
+Name:		rxvt
+Version:	2.4.7
+Release:	2 
+Copyright:	GPL
+Group:		X11/Utilities
+Group(pl):	X11/Narzêdzia
+Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.bz2
+Source1:	rxvt.wmconfig
+Patch:		rxvt-config.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
+
+%define _prefix /usr/X11R6
 
 %description
 Rxvt is a VT100 terminal emulator for X. It is intended as a replacement
@@ -40,11 +42,11 @@ rxvt utilise beaucoup moins d'espace de swap qu'xterm - un avantage certain
 sur une machine avec de nombreuses sessions X. 
 
 %description -l pl
-Rxvt jest emulatorem terminala VT100 pod X Window. jest on interesuj±cym
+Rxvt jest emulatorem terminala VT100 dla X Window. Jest on interesuj±cym
 zamiennikiem dla programu xterm(1) dla u¿ytkowników, którzy nie potrzebuj±
-bardziej wyszukanyc hmo¿liwo¶ci xterma jak emulacja terminala Tektronix 4014
-logowanie sesji pewnych mo¿liwo¶ci konfiguraxyjnych na poziomie X toolkit.
-Rezygnacja w z powy¿szycha zaowocowa³a tym, ¿e rxvt potrzebuje o wiele mniej
+bardziej wyszukanych mo¿liwo¶ci xterma jak emulacja terminala Tektronix 4014,
+logowanie sesji czy pewne mo¿liwo¶ci konfiguracyjnye na poziomie X toolkit.
+Rezygnacja z tych mo¿liwo¶ci zaowocowa³a tym, ¿e rxvt potrzebuje o wiele mniej
 pamiêci do uruchomienia.
 
 %description -l tr
@@ -61,7 +63,7 @@ ortamlarda son derece avantajlý olabilir.
 %build
 CFLAGS="$RPM_OPT_FLAGS" \
 ./configure %{_target_platform} \
-	--prefix=/usr/X11R6 \
+	--prefix=%{_prefix} \
 	--enable-utmp \
 	--enable-wtmp \
 	--enable-xpm-background 
@@ -71,22 +73,32 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/lib/X11/app-defaults}
 
-make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
+make prefix=$RPM_BUILD_ROOT%{_prefix} install
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/rxvt
+
+gzip -9nf doc/* $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc
+%doc doc/*
 %config(missingok) /etc/X11/wmconfig/rxvt
-%attr(755,root,root) /usr/X11R6/bin/*
-/usr/X11R6/man/man1/*
+%attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
 
 %changelog
-* Sun Sep 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+* Sun Jun  6 1999 Micha³ Kuratczyk <kura@pld.org.pl>
   [2.4.7-2]
+- changes for common l&f
+- added Group(pl)
+- added gzipping documentation
+- added using macros
+
+* Sun Sep 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.4.7-1]
+- based on RH spec
 - added -q %setup parameter,
 - changed Buildroot to /tmp/%%{name}-%%{version}-root,
 - added using %%{name} and %%{version} in Source,
@@ -94,22 +106,3 @@ rm -rf $RPM_BUILD_ROOT
 - rxvt is now builded from bziped tar source,
 - added pl translation,
 - spec rewrited for allow building from non-root account.
-
-* Tue Sep 08 1998 Cristian Gafton <gafton@redhat.com>
-- version 2.4.7
-- old version used to be called 2.20, so now we are Serial: 1
-
-* Thu May 07 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Fri Nov 07 1997 Michael K. Johnson <johnsonm@redhat.com>
-- no paths in wmconfig files.
-
-* Thu Oct 23 1997 Michael K. Johnson <johnsonm@redhat.com>
-- added wmconfig
-
-* Mon Jul 21 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
-
-* Mon Mar 31 1997 Michael K. Johnson <johnsonm@redhat.com>
-- make rxvt use standard XGetDefault instead of built-in one.
