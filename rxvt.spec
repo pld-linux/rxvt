@@ -70,7 +70,7 @@ Rxvt jest emulatorem terminala VT100 dla X Window. Jest on
 interesuj±cym zamiennikiem dla programu xterm(1) dla u¿ytkowników,
 którzy nie potrzebuj± bardziej wyszukanych mo¿liwo¶ci xterma jak
 emulacja terminala Tektronix 4014, logowanie sesji czy pewne
-mo¿liwo¶ci konfiguracyjnye na poziomie X toolkit. Rezygnacja z tych
+mo¿liwo¶ci konfiguracyjne na poziomie X toolkit. Rezygnacja z tych
 mo¿liwo¶ci zaowocowa³a tym, ¿e rxvt potrzebuje o wiele mniej pamiêci
 do uruchomienia.
 
