@@ -16,6 +16,7 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-utempter.patch
 Patch1:		%{name}-utmp-configure.patch
 Patch2:		%{name}-DESTDIR.patch
+Patch3:		%{name}-scroll.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
