@@ -1,24 +1,24 @@
 Summary:	rxvt - terminal emulator in an X window
 Summary(de):	rxvt - Terminal-Emulator in einem X-Fenster
+Summary(es): Emulador de terminal en X window - rxvt
 Summary(fr):	rxvt - un emulateur de terminal pour X window
 Summary(pl):	Emulator terminala pod X11
+Summary(pt_BR): Emulador de terminal no X window - rxvt
 Summary(ru):	rxvt - ‹Õ’Ã—‘œ“ ‘≈“Õ…Œ¡Ã¡ VT102 ƒÃ— X Window System
 Summary(tr):	X11 iÁin bir uÁbirim yaz˝l˝m˝
 Summary(uk):	rxvt - ≈Õ’Ã—‘œ“ ‘≈“Õ¶Œ¡Ã’ VT102 ƒÃ— X Window System
 Name:		rxvt
-Version:	2.7.6
-Release:	6
-Epoch:		13
+Version:	2.7.8
+Release:	4
+Epoch:		18
 License:	GPL
 Group:		X11/Applications
 Source0:	http://prdownloads.sourceforge.net/rxvt/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-utmp98.patch
 Patch1:		%{name}-utmp98-2.patch
-Patch2:		%{name}-command-overflow.patch
-Patch3:		%{name}-xim.patch
-Patch4:		%{name}-ac_fix.patch
-Patch5:		%{name}-utmpx.patch
+Patch2:		%{name}-xim.patch
+Patch3:		%{name}-utmpx.patch
 URL:		http://www.rxvt.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
@@ -48,6 +48,14 @@ wesentlich weniger Auslagerungsplatz als xterm, was einen
 signifikanten Vorteil f¸r Computer bedeutet, die viele X-Sitzungen
 bedienen.
 
+%description -l es
+Rxvt es un emulador de terminal VT100 para X. Tiene el objetivo de ser un
+substituto de xterm(1) para usuarios que no necesiten de las caracterÌsticas
+m·s esotÈricas de xterm. EspecÌficamente rxvt no implementa la emulaciÛn
+Tektronix 4014, registro de sesiÛn y configurabilidad en el estilo toolkit.
+Como resultado, rxvt usa mucho menos swap del que xterm - una ventaja
+significativa en una m·quina sirviendo varias sesiones X.
+
 %description -l fr
 rxvt est un Èmulateur de terminal VT100 pour X. Il est conÁu pour
 remplacer xterm(1) pour les utilisateurs qui n'ont pas besoin des
@@ -65,6 +73,14 @@ emulacja terminala Tektronix 4014, logowanie sesji czy pewne
 moøliwo∂ci konfiguracyjnye na poziomie X toolkit. Rezygnacja z tych
 moøliwo∂ci zaowocowa≥a tym, øe rxvt potrzebuje o wiele mniej pamiÍci
 do uruchomienia.
+
+%description -l pt_BR
+Rxvt È um emulador de terminal VT100 para X. Ele tem o objetivo de ser um
+substituto de xterm(1) para usu·rios que n„o necessitam das caracterÌsticas
+mais esotÈricas de xterm. Especificamente rxvt n„o implementa a emulaÁ„o
+Tektronix 4014, registro de sess„o e configurabilidade no estilo toolkit. Como
+resultado, rxvt usa muito menos swap do que xterm - uma vantagem significativa
+em uma m·quina servindo v·rias sessıes X.
 
 %description -l ru
 rxvt - ‹Õ’Ã—‘œ“ ‘≈“Õ…Œ¡Ã¡ VT100 ƒÃ— X window. ÔŒ “¡⁄“¡¬¡‘Ÿ◊¡Ã”— À¡À
@@ -96,11 +112,9 @@ xterm. rxvt, ⁄œÀ“≈Õ¡, Œ≈ “≈¡Ã¶⁄’§ ≈Õ’Ã—√¶¿ Tektronix 4014,
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
 
 %build
-mv -f autoconf/config.h.in .
+mv -f autoconf/{acconfig.h,configure.in,xpm.m4} .
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 libtoolize --copy --force
 aclocal -I .
