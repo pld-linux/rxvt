@@ -17,7 +17,6 @@ Patch1:		rxvt-utmp-configure.patch
 Patch2:		rxvt-DESTDIR.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
-BuildRequires:	yodl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -74,9 +73,10 @@ avantajlý olabilir.
 %patch2 -p1
 
 %build
-LDFLAGS="-s -lutempter" ; export LDFLAGS
+LDFLAGS="%{!?debug:-s} -lutempter" ; export LDFLAGS
 %configure \
 	--enable-shared \
+	--disable-static \
 	--enable-everything \
 	--enable-xgetdefault \
 	--disable-menubar \
@@ -87,10 +87,11 @@ LDFLAGS="-s -lutempter" ; export LDFLAGS
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities
-install -d $RPM_BUILD_ROOT%{_libdir}
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities \
+	$RPM_BUILD_ROOT%{_libdir}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
 
@@ -99,7 +100,7 @@ gzip -9nf doc/menu/* $RPM_BUILD_ROOT%{_mandir}/man1/*
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
+%post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %files
