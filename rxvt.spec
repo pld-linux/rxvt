@@ -12,7 +12,7 @@ Group:       X11/Utilities
 Source:      ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.bz2
 Source1:     rxvt.wmconfig
 Patch0:      rxvt-config.patch
-Buildroot:   /tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Rxvt is a VT100 terminal emulator for X. It is intended as a replacement
