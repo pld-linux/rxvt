@@ -5,7 +5,7 @@ Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
 Version:	2.7.6
-Release:	3
+Release:	4
 Epoch:		13
 License:	GPL
 Group:		X11/Applications
@@ -84,10 +84,11 @@ avantajlý olabilir.
 %patch5 -p1
 
 %build
+mv -f autoconf/config.h.in .
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 libtoolize --copy --force
-mv -f autoconf/config.h.in .
 aclocal -I .
+autoheader
 autoconf
 automake -a -c || :
 %configure \
@@ -103,13 +104,13 @@ automake -a -c || :
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Utilities \
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Terminals \
 	$RPM_BUILD_ROOT%{_libdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
 
 gzip -9nf doc/menu/*
 
@@ -119,7 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/menu/*
-%{_applnkdir}/Utilities/rxvt.desktop
+%{_applnkdir}/Terminals/rxvt.desktop
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
 %{_mandir}/man1/*
