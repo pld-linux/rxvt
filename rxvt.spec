@@ -4,17 +4,20 @@ Summary(fr):	rxvt - un emulateur de terminal pour X window
 Summary(pl):	Emulator terminala pod X11
 Summary(tr):	X11 için bir uçbirim yazýlýmý
 Name:		rxvt
-Version:	2.4.7
-Release:	2 
+Version:	2.6.0
+Release:	1 
 Copyright:	GPL
 Group:		X11/Utilities
 Group(pl):	X11/Narzêdzia
 Source0:	ftp://ftp.math.fu-berlin.de/pub/rxvt/devel/%{name}-%{version}.tar.bz2
 Source1:	rxvt.wmconfig
-Patch:		rxvt-config.patch
+Patch:		rxvt-utempter.patch
+#Patch:		rxvt-config.patch
+BuildPrereq:	utempter-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define _prefix /usr/X11R6
+%define _mandir /usr/X11R6/man
 
 %description
 Rxvt is a VT100 terminal emulator for X. It is intended as a replacement
@@ -58,14 +61,15 @@ ortamlarda son derece avantajlý olabilir.
 
 %prep
 %setup -q
-%patch -p1 -b .config
+%patch -p1
+#%patch -p1 -b .config
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-lutempter" \
 ./configure %{_target_platform} \
 	--prefix=%{_prefix} \
+	--mandir=%{_mandir} \
 	--enable-utmp \
-	--enable-wtmp \
 	--enable-xpm-background 
 make
 
@@ -73,7 +77,9 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/lib/X11/app-defaults}
 
-make prefix=$RPM_BUILD_ROOT%{_prefix} install
+make install prefix=$RPM_BUILD_ROOT%{_prefix} \
+	mandir=$RPM_BUILD_ROOT%{_mandir}/man1
+
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/rxvt
 
 gzip -9nf doc/* $RPM_BUILD_ROOT%{_mandir}/man1/*
