@@ -10,7 +10,7 @@ Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
 Summary(zh_CN):	rxvt - м╪пн╢╟©зоб╣ддёдБжу╤к
 Name:		rxvt
 Version:	2.7.10
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -139,13 +139,12 @@ CFLAGS="%{rpmcflags} -DLINUX_KEYS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Terminals \
-	$RPM_BUILD_ROOT%{_libdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -156,8 +155,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/menu/* ChangeLog
-%{_applnkdir}/Terminals/rxvt.desktop
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
 %attr(755,root,root) %{_libdir}/librxvt.so.*.*.*
+%{_desktopdir}/rxvt.desktop
 %{_mandir}/man1/*
