@@ -16,7 +16,8 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-utmp98.patch
 Patch1:		%{name}-utmp98-2.patch
 Patch2:		%{name}-command-overflow.patch
-PAtch3:		%{name}-xim.patch
+Patch3:		%{name}-xim.patch
+Patch4:		%{name}-ac_fix.patch
 URL:		http://www.rxvt.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	utempter-devel
@@ -75,9 +76,15 @@ avantajlý olabilir.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 CFLAGS="%{rpmcflags} -DLINUX_KEYS"
+libtoolize --copy --force
+mv autoconf/config.h.in .
+aclocal -I .
+autoconf
+automake -a -c || :
 %configure \
 	--disable-shared \
 	--enable-static \
