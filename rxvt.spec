@@ -9,7 +9,7 @@ Summary(tr):	X11 iГin bir uГbirim yazЩlЩmЩ
 Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
 Name:		rxvt
 Version:	2.7.8
-Release:	4
+Release:	5
 Epoch:		18
 License:	GPL
 Group:		X11/Applications
@@ -142,12 +142,10 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Terminals \
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Terminals
 
-gzip -9nf doc/menu/*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
+%post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %files
