@@ -69,7 +69,12 @@ CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-lutempter" \
 	--prefix=%{_prefix} \
 	--mandir=%{_mandir} \
 	--enable-utmp \
-	--enable-xpm-background 
+	--enable-xpm-background \
+	--enable-transparency \
+	--enable-xgetdefault \
+	--disable-menubar \
+	--disable-backspace-key \
+	--with-term=xterm-color
 make
 
 %install
