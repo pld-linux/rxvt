@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Rxvt
 Comment=Small, fast X terminal application
-Comment[pl]=Mała ale szybka aplikacja X terminalowa
+Comment[pl]=Mała, ale szybka aplikacja X terminalowa
 Comment[sv]=litet och snabbt X-terminalprogram
 Exec=rxvt
 Icon=gnome-term.png
