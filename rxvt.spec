@@ -1,13 +1,13 @@
 Summary:	rxvt - terminal emulator in an X window
-Summary(de):	rxvt - Terminal-Emulator in einem X-Fenster
-Summary(es):	Emulador de terminal en X window - rxvt
-Summary(fr):	rxvt - un emulateur de terminal pour X window
-Summary(pl):	Emulator terminala dla X Window
-Summary(pt_BR):	Emulador de terminal no X window - rxvt
-Summary(ru):	rxvt - эмулятор терминала VT102 для X Window System
-Summary(tr):	X11 iГin bir uГbirim yazЩlЩmЩ
-Summary(uk):	rxvt - емулятор терм╕налу VT102 для X Window System
-Summary(zh_CN):	rxvt - м╪пн╢╟©зоб╣ддёдБжу╤к
+Summary(de.UTF-8):   rxvt - Terminal-Emulator in einem X-Fenster
+Summary(es.UTF-8):   Emulador de terminal en X window - rxvt
+Summary(fr.UTF-8):   rxvt - un emulateur de terminal pour X window
+Summary(pl.UTF-8):   Emulator terminala dla X Window
+Summary(pt_BR.UTF-8):   Emulador de terminal no X window - rxvt
+Summary(ru.UTF-8):   rxvt - я█п╪я┐п╩я▐я┌п╬я─ я┌п╣я─п╪п╦п╫п╟п╩п╟ VT102 п╢п╩я▐ X Window System
+Summary(tr.UTF-8):   X11 iц╖in bir uц╖birim yazд╠lд╠mд╠
+Summary(uk.UTF-8):   rxvt - п╣п╪я┐п╩я▐я┌п╬я─ я┌п╣я─п╪я√п╫п╟п╩я┐ VT102 п╢п╩я▐ X Window System
+Summary(zh_CN.UTF-8):   rxvt - Е⌡╬Е╫╒Г╙≈Е▐ёД╦▀Г └Ф╗║Ф▀÷Г╩┬Г╚╞
 Name:		rxvt
 Version:	2.7.10
 Release:	4
@@ -38,75 +38,75 @@ Tektronix 4014 emulation, session logging and toolkit style
 configurability. As a result, rxvt uses much less swap space than
 xterm - a significant advantage on a machine serving many X sessions.
 
-%description -l de
-Rxvt ist ein VT100-Terminal-Emulator fЭr X. Es ist als der Nachfolger
-von xterm(1) fЭr Benutzer gedacht, die auf die exotischeren Funktionen
-von xterm verzichten kЖnnen. Insbesondere implementiert rxvt keine
+%description -l de.UTF-8
+Rxvt ist ein VT100-Terminal-Emulator fц╪r X. Es ist als der Nachfolger
+von xterm(1) fц╪r Benutzer gedacht, die auf die exotischeren Funktionen
+von xterm verzichten kц╤nnen. Insbesondere implementiert rxvt keine
 Tektronix 4014-Emulation, keine Sitzungsprotokolle und keine
 Konfigurierbarkeit im Toolkit-Stil. Als Folge davon belegt es
 wesentlich weniger Auslagerungsplatz als xterm, was einen
-signifikanten Vorteil fЭr Computer bedeutet, die viele X-Sitzungen
+signifikanten Vorteil fц╪r Computer bedeutet, die viele X-Sitzungen
 bedienen.
 
-%description -l es
+%description -l es.UTF-8
 Rxvt es un emulador de terminal VT100 para X. Tiene el objetivo de ser
 un substituto de xterm(1) para usuarios que no necesiten de las
-caracterМsticas mАs esotИricas de xterm. EspecМficamente rxvt no
-implementa la emulaciСn Tektronix 4014, registro de sesiСn y
+caracterц╜sticas mц║s esotц╘ricas de xterm. Especц╜ficamente rxvt no
+implementa la emulaciцЁn Tektronix 4014, registro de sesiцЁn y
 configurabilidad en el estilo toolkit. Como resultado, rxvt usa mucho
-menos swap del que xterm - una ventaja significativa en una mАquina
+menos swap del que xterm - una ventaja significativa en una mц║quina
 sirviendo varias sesiones X.
 
-%description -l fr
-rxvt est un Иmulateur de terminal VT100 pour X. Il est conГu pour
+%description -l fr.UTF-8
+rxvt est un ц╘mulateur de terminal VT100 pour X. Il est conц╖u pour
 remplacer xterm(1) pour les utilisateurs qui n'ont pas besoin des
-possibilitИs ИsotИriques d'xterm. Notamment, rxvt n'implante pas
-l'Иmulation Tektronix 4014, le session logging et la configuration de
+possibilitц╘s ц╘sotц╘riques d'xterm. Notamment, rxvt n'implante pas
+l'ц╘mulation Tektronix 4014, le session logging et la configuration de
 style toolkit. En revanche, rxvt utilise beaucoup moins d'espace de
 swap qu'xterm - un avantage certain sur une machine avec de nombreuses
 sessions X.
 
-%description -l pl
+%description -l pl.UTF-8
 Rxvt jest emulatorem terminala VT100 dla X Window. Jest on
-interesuj╠cym zamiennikiem dla programu xterm(1) dla u©ytkownikСw,
-ktСrzy nie potrzebuj╠ bardziej wyszukanych mo©liwo╤ci xterma jak
+interesujд┘cym zamiennikiem dla programu xterm(1) dla uе╪ytkownikцЁw,
+ktцЁrzy nie potrzebujд┘ bardziej wyszukanych moе╪liwoе⌡ci xterma jak
 emulacja terminala Tektronix 4014, logowanie sesji czy pewne
-mo©liwo╤ci konfiguracyjne na poziomie X toolkit. Rezygnacja z tych
-mo©liwo╤ci zaowocowaЁa tym, ©e rxvt potrzebuje o wiele mniej pamiЙci
+moе╪liwoе⌡ci konfiguracyjne na poziomie X toolkit. Rezygnacja z tych
+moе╪liwoе⌡ci zaowocowaе┌a tym, е╪e rxvt potrzebuje o wiele mniej pamiд≥ci
 do uruchomienia.
 
-%description -l pt_BR
-Rxvt И um emulador de terminal VT100 para X. Ele tem o objetivo de ser
-um substituto de xterm(1) para usuАrios que nЦo necessitam das
-caracterМsticas mais esotИricas de xterm. Especificamente rxvt nЦo
-implementa a emulaГЦo Tektronix 4014, registro de sessЦo e
+%description -l pt_BR.UTF-8
+Rxvt ц╘ um emulador de terminal VT100 para X. Ele tem o objetivo de ser
+um substituto de xterm(1) para usuц║rios que nцёo necessitam das
+caracterц╜sticas mais esotц╘ricas de xterm. Especificamente rxvt nцёo
+implementa a emulaц╖цёo Tektronix 4014, registro de sessцёo e
 configurabilidade no estilo toolkit. Como resultado, rxvt usa muito
-menos swap do que xterm - uma vantagem significativa em uma mАquina
-servindo vАrias sessУes X.
+menos swap do que xterm - uma vantagem significativa em uma mц║quina
+servindo vц║rias sessц╣es X.
 
-%description -l ru
-rxvt - эмулятор терминала VT100 для X window. Он разрабатывался как
-замена для xterm(1) для пользователей, которым не требуется все
-возможности xterm. rxvt, в частности, не реализует эмуляцию Tektronix
-4014, протоколирование сессий и конфигурируемость в стиле тулкита. В
-результате rxvt использует намного меньше своп-памяти чем xterm -
-значительное преимущество для машин, обрабатывающих много X-сессий.
+%description -l ru.UTF-8
+rxvt - я█п╪я┐п╩я▐я┌п╬я─ я┌п╣я─п╪п╦п╫п╟п╩п╟ VT100 п╢п╩я▐ X window. п·п╫ я─п╟п╥я─п╟п╠п╟я┌я▀п╡п╟п╩я│я▐ п╨п╟п╨
+п╥п╟п╪п╣п╫п╟ п╢п╩я▐ xterm(1) п╢п╩я▐ п©п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩п╣п╧, п╨п╬я┌п╬я─я▀п╪ п╫п╣ я┌я─п╣п╠я┐п╣я┌я│я▐ п╡я│п╣
+п╡п╬п╥п╪п╬п╤п╫п╬я│я┌п╦ xterm. rxvt, п╡ я┤п╟я│я┌п╫п╬я│я┌п╦, п╫п╣ я─п╣п╟п╩п╦п╥я┐п╣я┌ я█п╪я┐п╩я▐я├п╦я▌ Tektronix
+4014, п©я─п╬я┌п╬п╨п╬п╩п╦я─п╬п╡п╟п╫п╦п╣ я│п╣я│я│п╦п╧ п╦ п╨п╬п╫я└п╦пЁя┐я─п╦я─я┐п╣п╪п╬я│я┌я▄ п╡ я│я┌п╦п╩п╣ я┌я┐п╩п╨п╦я┌п╟. п▓
+я─п╣п╥я┐п╩я▄я┌п╟я┌п╣ rxvt п╦я│п©п╬п╩я▄п╥я┐п╣я┌ п╫п╟п╪п╫п╬пЁп╬ п╪п╣п╫я▄я┬п╣ я│п╡п╬п©-п©п╟п╪я▐я┌п╦ я┤п╣п╪ xterm -
+п╥п╫п╟я┤п╦я┌п╣п╩я▄п╫п╬п╣ п©я─п╣п╦п╪я┐я┴п╣я│я┌п╡п╬ п╢п╩я▐ п╪п╟я┬п╦п╫, п╬п╠я─п╟п╠п╟я┌я▀п╡п╟я▌я┴п╦я┘ п╪п╫п╬пЁп╬ X-я│п╣я│я│п╦п╧.
 
-%description -l tr
-rxvt, X11 iГin vt100 terminalini destekleyen bir yazЩlЩmdЩr. AsЩl
-geliЧtirilme amacЩ xterm'in bazЩ detaylЩ Жzelliklerine gerek duymayan
-kiЧiler iГin daha az kaynak harcayan bir alternatif yaratmaktЩ.
-Textronik 4014 ЖykЭnЭmЭ gibi xterm'e ait egzotik Жzellikleri
-gerektirmeyen ve birГok pencerenin aГЩldЩПЩ ortamlarda son derece
-avantajlЩ olabilir.
+%description -l tr.UTF-8
+rxvt, X11 iц╖in vt100 terminalini destekleyen bir yazд╠lд╠mdд╠r. Asд╠l
+geliе÷tirilme amacд╠ xterm'in bazд╠ detaylд╠ ц╤zelliklerine gerek duymayan
+kiе÷iler iц╖in daha az kaynak harcayan bir alternatif yaratmaktд╠.
+Textronik 4014 ц╤ykц╪nц╪mц╪ gibi xterm'e ait egzotik ц╤zellikleri
+gerektirmeyen ve birц╖ok pencerenin aц╖д╠ldд╠д÷д╠ ortamlarda son derece
+avantajlд╠ olabilir.
 
-%description -l uk
-rxvt - емулятор терм╕налу VT100 для X window. В╕н був розроблений як
-зам╕на для xterm(1) для користувач╕в, яким не потр╕бн╕ вс╕ можливост╕
-xterm. rxvt, зокрема, не реал╕зу╓ емуляц╕ю Tektronix 4014,
-протоколювання сес╕й та конф╕гурован╕сть в стил╕ Xtoolkit. Як
-результат rxvt потребу╓ набагато менше пам'ят╕ н╕ж xterm - значна
-перевага для машин, що обробляють багато X-сес╕й.
+%description -l uk.UTF-8
+rxvt - п╣п╪я┐п╩я▐я┌п╬я─ я┌п╣я─п╪я√п╫п╟п╩я┐ VT100 п╢п╩я▐ X window. п▓я√п╫ п╠я┐п╡ я─п╬п╥я─п╬п╠п╩п╣п╫п╦п╧ я▐п╨
+п╥п╟п╪я√п╫п╟ п╢п╩я▐ xterm(1) п╢п╩я▐ п╨п╬я─п╦я│я┌я┐п╡п╟я┤я√п╡, я▐п╨п╦п╪ п╫п╣ п©п╬я┌я─я√п╠п╫я√ п╡я│я√ п╪п╬п╤п╩п╦п╡п╬я│я┌я√
+xterm. rxvt, п╥п╬п╨я─п╣п╪п╟, п╫п╣ я─п╣п╟п╩я√п╥я┐я■ п╣п╪я┐п╩я▐я├я√я▌ Tektronix 4014,
+п©я─п╬я┌п╬п╨п╬п╩я▌п╡п╟п╫п╫я▐ я│п╣я│я√п╧ я┌п╟ п╨п╬п╫я└я√пЁя┐я─п╬п╡п╟п╫я√я│я┌я▄ п╡ я│я┌п╦п╩я√ Xtoolkit. п╞п╨
+я─п╣п╥я┐п╩я▄я┌п╟я┌ rxvt п©п╬я┌я─п╣п╠я┐я■ п╫п╟п╠п╟пЁп╟я┌п╬ п╪п╣п╫я┬п╣ п©п╟п╪'я▐я┌я√ п╫я√п╤ xterm - п╥п╫п╟я┤п╫п╟
+п©п╣я─п╣п╡п╟пЁп╟ п╢п╩я▐ п╪п╟я┬п╦п╫, я┴п╬ п╬п╠я─п╬п╠п╩я▐я▌я┌я▄ п╠п╟пЁп╟я┌п╬ X-я│п╣я│я√п╧.
 
 %prep
 %setup -q
