@@ -1,13 +1,13 @@
 Summary:	rxvt - terminal emulator in an X window
-Summary(de.UTF-8):   rxvt - Terminal-Emulator in einem X-Fenster
-Summary(es.UTF-8):   Emulador de terminal en X window - rxvt
-Summary(fr.UTF-8):   rxvt - un emulateur de terminal pour X window
-Summary(pl.UTF-8):   Emulator terminala dla X Window
-Summary(pt_BR.UTF-8):   Emulador de terminal no X window - rxvt
-Summary(ru.UTF-8):   rxvt - эмулятор терминала VT102 для X Window System
-Summary(tr.UTF-8):   X11 için bir uçbirim yazılımı
-Summary(uk.UTF-8):   rxvt - емулятор терміналу VT102 для X Window System
-Summary(zh_CN.UTF-8):   rxvt - 图形窗口下的模拟终端
+Summary(de.UTF-8):	rxvt - Terminal-Emulator in einem X-Fenster
+Summary(es.UTF-8):	Emulador de terminal en X window - rxvt
+Summary(fr.UTF-8):	rxvt - un emulateur de terminal pour X window
+Summary(pl.UTF-8):	Emulator terminala dla X Window
+Summary(pt_BR.UTF-8):	Emulador de terminal no X window - rxvt
+Summary(ru.UTF-8):	rxvt - эмулятор терминала VT102 для X Window System
+Summary(tr.UTF-8):	X11 için bir uçbirim yazılımı
+Summary(uk.UTF-8):	rxvt - емулятор терміналу VT102 для X Window System
+Summary(zh_CN.UTF-8):	rxvt - 图形窗口下的模拟终端
 Name:		rxvt
 Version:	2.7.10
 Release:	4
