@@ -1,0 +1,11 @@
+--- rxvt-2.7.10/src/Makefile.in~	2001-11-30 04:22:56.000000000 +0100
++++ rxvt-2.7.10/src/Makefile.in	2007-02-15 16:50:25.000000000 +0100
+@@ -103,7 +103,7 @@
+ 	date >.protos
+ 
+ librxvt.la: $(LIBOBJS)
+-	$(LIBTOOL) --mode=link $(LINK) -rpath $(libdir) -version-info $(LIBVERSION) $(LIBOBJS) $(LIBS) -o $@
++	$(LIBTOOL) --mode=link $(LINK) -rpath $(libdir) -version-info $(LIBVERSION) $(LIBOBJS) $(LIBS) $(XLIB) -o $@
+ #-------------------------------------------------------------------------
+ tags: $(SRCS) $(HDRS) $(EXTRAHDRS)
+ 	ctags $(SRCS) $(HDRS) $(EXTRAHDRS)

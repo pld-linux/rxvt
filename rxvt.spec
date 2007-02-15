@@ -10,7 +10,7 @@ Summary(uk.UTF-8):	rxvt - емулятор терміналу VT102 для X Win
 Summary(zh_CN.UTF-8):	rxvt - 图形窗口下的模拟终端
 Name:		rxvt
 Version:	2.7.10
-Release:	4
+Release:	5
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -21,12 +21,17 @@ Patch0:		%{name}-utmp98.patch
 Patch1:		%{name}-utmp98-2.patch
 Patch2:		%{name}-xim.patch
 Patch3:		%{name}-utmpx.patch
+Patch4:		%{name}-as-needed.patch
 URL:		http://www.rxvt.org/
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
+BuildRequires:	libxcb-devel
 BuildRequires:	utempter-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXau-devel
+BuildRequires:	xorg-lib-libXdmcp-devel
+BuildRequires:	xorg-lib-libXpm-devel
 Requires:	terminfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -114,6 +119,7 @@ xterm. rxvt, зокрема, не реалізує емуляцію Tektronix 40
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 mv -f autoconf/{configure.in,xpm.m4} .
