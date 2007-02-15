@@ -14,8 +14,8 @@ Release:	4
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/rxvt/%{name}-%{version}.tar.bz2
-# Source0-md5:	00dd774ee6e4e06d5a060266d7bb92f5
+Source0:	http://dl.sourceforge.net/rxvt/%{name}-%{version}.tar.gz
+# Source0-md5:	302c5c455e64047b02d1ef19ff749141
 Source1:	%{name}.desktop
 Patch0:		%{name}-utmp98.patch
 Patch1:		%{name}-utmp98-2.patch
