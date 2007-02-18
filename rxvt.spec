@@ -23,14 +23,11 @@ Patch2:		%{name}-xim.patch
 Patch3:		%{name}-utmpx.patch
 Patch4:		%{name}-as-needed.patch
 URL:		http://www.rxvt.org/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	libxcb-devel
 BuildRequires:	utempter-devel
 BuildRequires:	xorg-lib-libX11-devel
-BuildRequires:	xorg-lib-libXau-devel
-BuildRequires:	xorg-lib-libXdmcp-devel
 BuildRequires:	xorg-lib-libXpm-devel
 Requires:	terminfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
