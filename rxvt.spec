@@ -10,7 +10,7 @@ Summary(uk.UTF-8):	rxvt - емулятор терміналу VT102 для X Win
 Summary(zh_CN.UTF-8):	rxvt - 图形窗口下的模拟终端
 Name:		rxvt
 Version:	2.7.10
-Release:	5
+Release:	6
 Epoch:		1
 License:	GPL
 Group:		X11/Applications
@@ -162,5 +162,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/rxvt
 %attr(755,root,root) %{_bindir}/rclock
 %attr(755,root,root) %{_libdir}/librxvt.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/librxvt.so.1
 %{_desktopdir}/rxvt.desktop
 %{_mandir}/man1/*
